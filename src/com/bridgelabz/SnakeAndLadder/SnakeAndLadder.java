@@ -1,5 +1,4 @@
 package com.bridgelabz.SnakeAndLadder;
-
 public class SnakeAndLadder {
 
     static int START_POSITION = 0;
@@ -9,16 +8,19 @@ public class SnakeAndLadder {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and ladder game");
+        while(START_POSITION<=100){
         int dieNum = (int)(Math.random()*10)%6+1;
         int option = (int)(Math.random()*10)%3;
-        if (option == IF_LADDER){
-            START_POSITION+=dieNum;
+            if (option == IF_LADDER){
+                START_POSITION+=dieNum;
+            }
+            else if (option==IF_SNAKE) {
+                START_POSITION-=dieNum;
+            }
+            if( START_POSITION<0){
+                START_POSITION=0;
+            }
         }
-        else if (option==IF_SNAKE) {
-            START_POSITION-=dieNum;
-        }
-
         System.out.println(START_POSITION);
-
     }
 }

@@ -8,7 +8,7 @@ public class SnakeAndLadder {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and ladder game");
-        while(START_POSITION<=100){
+        while(START_POSITION<100){
         int dieNum = (int)(Math.random()*10)%6+1;
         int option = (int)(Math.random()*10)%3;
             if (option == IF_LADDER){
@@ -19,6 +19,9 @@ public class SnakeAndLadder {
             }
             if( START_POSITION<0){
                 START_POSITION=0;
+            }
+            if(START_POSITION>100){
+                START_POSITION-=dieNum;
             }
         }
         System.out.println(START_POSITION);

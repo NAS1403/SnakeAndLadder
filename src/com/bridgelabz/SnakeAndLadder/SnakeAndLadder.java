@@ -6,15 +6,26 @@ public class SnakeAndLadder {
     static final int IF_SNAKE =2;
     static int currentPosition=0;
     static int die =0;
+    static int player=1;
+
+    static void switchPlayer(){
+        if (player==1){
+            player=2;
+        }
+        else{
+            player=1;
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and ladder game");
         while(currentPosition<100){
+            switchPlayer();
 
         int dieNum = (int)(Math.random()*10)%6+1;
         int option = (int)(Math.random()*10)%3;
             if (option == IF_LADDER){
                 currentPosition+=dieNum;
-
+                switchPlayer();
                }
             else if (option==IF_SNAKE) {
                 currentPosition-=dieNum;
@@ -31,9 +42,7 @@ public class SnakeAndLadder {
             System.out.println("Current position is: "+currentPosition);
             die++;
         }
-
         System.out.println("Total number of times Die rolled are: "+die);
-
-
+        System.out.println("Player "+ player + " wins the game");
     }
 }

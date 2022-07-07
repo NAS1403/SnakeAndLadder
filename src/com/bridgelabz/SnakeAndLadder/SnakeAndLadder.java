@@ -1,29 +1,39 @@
 package com.bridgelabz.SnakeAndLadder;
 public class SnakeAndLadder {
-
-    static int START_POSITION = 0;
+    static final int START_POSITION = 0;
     static final int NO_PLAY = 0;
     static final int IF_LADDER = 1;
     static final int IF_SNAKE =2;
-
+    static int currentPosition=0;
+    static int die =0;
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and ladder game");
-        while(START_POSITION<100){
+        while(currentPosition<100){
+
         int dieNum = (int)(Math.random()*10)%6+1;
         int option = (int)(Math.random()*10)%3;
             if (option == IF_LADDER){
-                START_POSITION+=dieNum;
-            }
+                currentPosition+=dieNum;
+
+               }
             else if (option==IF_SNAKE) {
-                START_POSITION-=dieNum;
+                currentPosition-=dieNum;
             }
-            if( START_POSITION<0){
-                START_POSITION=0;
+            else if(option == NO_PLAY){
+                System.out.println("No Play");
             }
-            if(START_POSITION>100){
-                START_POSITION-=dieNum;
+            if( currentPosition<START_POSITION){
+                currentPosition=0;
             }
+            if(currentPosition>100){
+                currentPosition-=dieNum;
+            }
+            System.out.println("Current position is: "+currentPosition);
+            die++;
         }
-        System.out.println(START_POSITION);
+
+        System.out.println("Total number of times Die rolled are: "+die);
+
+
     }
 }

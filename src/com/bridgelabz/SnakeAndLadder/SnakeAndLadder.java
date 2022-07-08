@@ -4,6 +4,7 @@ public class SnakeAndLadder {
     static final int NO_PLAY = 0;
     static final int IF_LADDER = 1;
     static final int IF_SNAKE =2;
+    static final int MAX_POSITION = 100;
     static int currentPosition=0;
     static int die =0;
     static int player=1;
@@ -36,7 +37,7 @@ public class SnakeAndLadder {
             if( currentPosition<START_POSITION){
                 currentPosition=0;
             }
-            if(currentPosition>100){
+            if(currentPosition>MAX_POSITION){
                 currentPosition-=dieNum;
             }
             System.out.println("Current position is: "+currentPosition);
